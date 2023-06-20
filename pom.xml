@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dynamsoft.server</groupId>
+    <artifactId>barcodereader</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+	<repositories>
+	    <repository>
+	        <id>dbr </id>
+	        <url>
+	        https://download2.dynamsoft.com/maven/dbr/jar
+	        </url>
+	    </repository>
+	</repositories>
+	<dependencies>
+        <dependency>
+            <groupId>com.dynamsoft</groupId>
+            <artifactId>dbr</artifactId>
+            <version>9.6.20</version>
+        </dependency>
+		<dependency>
+		     <groupId>org.eclipse.jetty</groupId>
+		     <artifactId>jetty-servlet</artifactId>
+		     <version>11.0.15</version>
+		 </dependency>
+		<dependency>
+		  <groupId>org.eclipse.jetty</groupId>
+		  <artifactId>jetty-server</artifactId>
+		  <version>11.0.15</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.google.code.gson</groupId>
+		  <artifactId>gson</artifactId>
+		  <version>2.10.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.google.zxing</groupId>
+		    <artifactId>javase</artifactId>
+		    <version>3.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+		    <artifactId>core</artifactId>
+		    <version>3.5.1</version>
+		</dependency>
+    </dependencies>
+</project>
