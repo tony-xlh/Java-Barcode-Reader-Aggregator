@@ -66,7 +66,8 @@ public class ZXingBarcodeReader extends AbstractBarcodeReader {
       e.printStackTrace();
     }
     long endTime = System.nanoTime();
-    decodingResult.elapsedTime = endTime - startTime;
+    double milliseconds = (endTime-startTime)*1e-6;
+    decodingResult.elapsedTime = milliseconds;
     return decodingResult;
   }
 
