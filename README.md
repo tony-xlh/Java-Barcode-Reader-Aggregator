@@ -5,7 +5,9 @@ A Java HTTP server app with Jetty which provides an API interface to read barcod
 It integrates the following barcode reading SDKs.
 
 * [Dynamsoft Barcode Reader](https://www.dynamsoft.com/barcode-reader/overview/)
-* 
+* BoofCV
+* ZXing
+* Accusoft Barcode Xpress
 
 ## Web API Usage
 
@@ -25,6 +27,7 @@ It integrates the following barcode reading SDKs.
    
    ```json
    {
+     "SDK": "name of the sdk: Dynamsoft, Accusoft, ZXing, BoofCV"
      "base64": "the base64 string of the image for decoding"
    }
    ```
