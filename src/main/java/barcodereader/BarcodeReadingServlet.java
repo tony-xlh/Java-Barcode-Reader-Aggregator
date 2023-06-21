@@ -34,6 +34,8 @@ public class BarcodeReadingServlet extends HttpServlet   {
               reader = new DynamsoftBarcodeReader();
             }else if (body.SDK.equals("BoofCV")) {
               reader = new BoofCVBarcodeReader();
+            }else if (body.SDK.equals("Accusoft")) {
+              reader = new BarcodeXpressBarcodeReader();
             }else{
               reader = new ZXingBarcodeReader();
             }

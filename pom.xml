@@ -10,6 +10,15 @@
 	        https://download2.dynamsoft.com/maven/dbr/jar
 	        </url>
 	    </repository>
+		<repository>
+		  <id>accusoft-mvn-pub</id>
+		  <name>Accusoft Public Maven Releases</name>
+		  <url>https://mvn.accusoft.com</url>
+		  <layout>default</layout>
+		  <snapshots>
+		    <enabled>false</enabled>
+		  </snapshots>
+		</repository>
 	</repositories>
 	<dependencies>
         <dependency>
@@ -46,6 +55,11 @@
 			<groupId>org.boofcv</groupId>
 		    <artifactId>boofcv-core</artifactId>
 		    <version>0.43.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.accusoft.barcodexpress</groupId>
+			  <artifactId>barcodexpressjava</artifactId>
+			<version>13.9</version>
 		</dependency>
     </dependencies>
 </project>

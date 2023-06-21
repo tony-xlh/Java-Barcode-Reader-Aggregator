@@ -4,6 +4,7 @@ public class BarcodeResult {
   public String barcodeText;
   public String barcodeFormat;
   public String barcodeBytes;
+  public int confidence;
   public int x1;
   public int x2;
   public int x3;
