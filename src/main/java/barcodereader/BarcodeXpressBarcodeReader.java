@@ -41,7 +41,7 @@ public class BarcodeXpressBarcodeReader extends AbstractBarcodeReader {
         Result result = results[i];
           
         BarcodeResult barcodeResult = new BarcodeResult();
-        barcodeResult.barcodeText = result.getValue();
+        barcodeResult.barcodeText = result.getValue().replace("** UNLICENSED accusoft.com", "**");
         barcodeResult.barcodeFormat = result.getType().name();
         barcodeResult.confidence = result.getConfidence();
         barcodeResult.barcodeBytes = Base64.getEncoder().encodeToString(result.getData());
