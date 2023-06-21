@@ -21,12 +21,10 @@ public class DynamsoftBarcodeReader extends AbstractBarcodeReader {
   @Override
   DecodingResult decodeBytes(byte[] imageBytes) {
     DecodingResult decodingResult = new DecodingResult();
+    List<BarcodeResult> barcodeResults = new ArrayList<BarcodeResult>();
     long startTime = System.nanoTime();
     try {
-      
       TextResult[] results = reader.decodeFileInMemory(imageBytes, "");
-      
-      List<BarcodeResult> barcodeResults = new ArrayList<BarcodeResult>();
       for (TextResult result:results) {
           BarcodeResult barcodeResult = new BarcodeResult();
           barcodeResult.barcodeText = result.barcodeText;
@@ -42,13 +40,13 @@ public class DynamsoftBarcodeReader extends AbstractBarcodeReader {
           barcodeResult.y4 = result.localizationResult.resultPoints[3].y;
           barcodeResults.add(barcodeResult);
       }
-      decodingResult.results = barcodeResults;
     } catch (BarcodeReaderException e) {
       e.printStackTrace();
     }
     long endTime = System.nanoTime();
     double milliseconds = (endTime-startTime)*1e-6;
     decodingResult.elapsedTime = milliseconds;
+    decodingResult.results = barcodeResults;
     return decodingResult;
   }
   

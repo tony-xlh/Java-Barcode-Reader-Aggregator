@@ -16,7 +16,6 @@ public class BarcodeReadingServlet extends HttpServlet   {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
         System.out.println("read barcodes");
         StringBuilder responseStrBuilder = new StringBuilder();
         DecodingResult decodingResult = new DecodingResult();
@@ -33,6 +32,8 @@ public class BarcodeReadingServlet extends HttpServlet   {
             System.out.println(body.SDK);
             if (body.SDK.equals("Dynamsoft")) {
               reader = new DynamsoftBarcodeReader();
+            }else if (body.SDK.equals("BoofCV")) {
+              reader = new BoofCVBarcodeReader();
             }else{
               reader = new ZXingBarcodeReader();
             }

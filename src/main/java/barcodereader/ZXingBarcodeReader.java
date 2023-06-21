@@ -30,6 +30,7 @@ public class ZXingBarcodeReader extends AbstractBarcodeReader {
   @Override
   DecodingResult decodeBytes(byte[] imageBytes) {
     DecodingResult decodingResult = new DecodingResult();
+    List<BarcodeResult> barcodeResults = new ArrayList<BarcodeResult>();
     long startTime = System.nanoTime();
     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imageBytes);
     try {
@@ -39,7 +40,6 @@ public class ZXingBarcodeReader extends AbstractBarcodeReader {
       LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
       BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
       Result[] results = reader.decodeMultiple(bitmap, hints);
-      List<BarcodeResult> barcodeResults = new ArrayList<BarcodeResult>();
       for (Result result:results) {
         BarcodeResult barcodeResult = new BarcodeResult();
         barcodeResult.barcodeText = result.getText();
@@ -60,7 +60,6 @@ public class ZXingBarcodeReader extends AbstractBarcodeReader {
         barcodeResult.y4 = rect.y + rect.height;
         barcodeResults.add(barcodeResult);
       }
-      decodingResult.results = barcodeResults;
     } catch (IOException | NotFoundException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -68,6 +67,7 @@ public class ZXingBarcodeReader extends AbstractBarcodeReader {
     long endTime = System.nanoTime();
     double milliseconds = (endTime-startTime)*1e-6;
     decodingResult.elapsedTime = milliseconds;
+    decodingResult.results = barcodeResults;
     return decodingResult;
   }
 
