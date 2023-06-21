@@ -30,7 +30,8 @@ public class BarcodeReadingServlet extends HttpServlet   {
             DecodingRequestBody body = gson.fromJson(responseStrBuilder.toString(), DecodingRequestBody.class);
             byte[] bytes = Base64.getDecoder().decode(body.base64);
             AbstractBarcodeReader reader;
-            if (body.SDK == "Dynamsoft") {
+            System.out.println(body.SDK);
+            if (body.SDK.equals("Dynamsoft")) {
               reader = new DynamsoftBarcodeReader();
             }else{
               reader = new ZXingBarcodeReader();
